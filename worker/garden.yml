@@ -9,8 +9,8 @@ type: container
 name: worker
 build: worker
 dependencies:
-  - redis
-  - create-db
+  - deploy.redis
+  - deploy.postgres
 spec:
   services:
     - name: worker

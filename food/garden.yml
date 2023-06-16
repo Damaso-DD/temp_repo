@@ -9,7 +9,7 @@ name: food
 type: container
 build: food
 dependencies:
-  - api
+  - deploy.api
 spec:
   ports:
     - name: http

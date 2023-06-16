@@ -9,7 +9,7 @@ description: The backend service for the Restaurant Food Suggestion App
 type: container
 build: api
 dependencies:
-  - worker
+  - deploy.worker
 spec:
   args: [python, app.py]
   ports:
