@@ -4,9 +4,7 @@ type: container
 name: redis
 spec:
   image: redis:alpine
-  services:
+  ports:
     - name: redis
-      ports:
-        - name: redis
-          protocol: TCP
-          containerPort: 6379
+      protocol: TCP
+      containerPort: 6379
