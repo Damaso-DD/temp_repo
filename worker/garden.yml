@@ -2,6 +2,11 @@ kind: Build
 description: The worker that collects food suggestions and stores them in a postgres table
 type: container
 name: worker
+---
+kind: Deploy
+description: The worker that collects food suggestions and stores them in a postgres table
+type: container
+name: worker
 services:
   - name: worker
     dependencies:

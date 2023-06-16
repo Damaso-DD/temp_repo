@@ -2,6 +2,11 @@ kind: Build
 description: Redis service for queueing food suggestions before they are stored in the database.
 type: container
 name: redis
+---
+kind: Deploy
+description: Redis service for queueing food suggestions before they are stored in the database.
+type: container
+name: redis
 image: redis:alpine
 services:
   - name: redis

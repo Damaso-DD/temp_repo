@@ -1,3 +1,8 @@
+kind: Build
+description: The Food Suggestion UI
+name: food
+type: container
+---
 kind: Deploy
 description: The Food Suggestion UI
 name: food
