@@ -1,8 +1,3 @@
-kind: Build
-description: Postgres container 
-type: container
-name: postgres
----
 kind: Deploy
 description: Postgres container 
 type: container
