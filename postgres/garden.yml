@@ -1,5 +1,10 @@
 kind: Build
-description: Postgres container for storing voting results
+description: Postgres container 
+type: container
+name: postgres
+---
+kind: Deploy
+description: Postgres container 
 type: container
 name: postgres
 image: postgres:11.7-alpine
