@@ -8,8 +8,10 @@ name: api
 description: The backend service for the Restaurant Food Suggestion App
 type: container
 build: api
+dependencies:
+  - worker
 spec:
-  command: [python, app.py]
+  args: [python, app.py]
   ports:
     - name: http
       protocol: TCP
@@ -23,8 +25,6 @@ spec:
     - path: /
       hostname: "api.${var.base-hostname}"
       port: http
-  dependencies:
-    - worker
 ---
 kind: Test
 name: api

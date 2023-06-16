@@ -8,6 +8,8 @@ description: The Food Suggestion UI
 name: food
 type: container
 build: food
+dependencies:
+  - api
 spec:
   ports:
     - name: http
@@ -17,8 +19,7 @@ spec:
     - path: /
       port: http
       hostname: food.${variables.base-hostname}
-  dependencies:
-    - api
+
 # tests:
 #   - name: integ
 #     args: [npm, run, test]
