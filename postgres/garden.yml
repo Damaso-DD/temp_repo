@@ -19,8 +19,9 @@ spec:
 ---
 kind: Run
 description: Create db 
-type: kubernetes-exec
+type: container
 name: create-db
+build: postgres
 dependencies: [deploy.postgres]
 spec:
   command: [/bin/sh, -c]
