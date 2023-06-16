@@ -19,11 +19,13 @@ spec:
 ---
 kind: Run
 description: Create db 
-type: container
+type: kubernetes-exec
 name: create-db
-build: postgres
 dependencies: [deploy.postgres]
 spec:
+  resource:
+    kind: "StatefulSet"
+    name: "postgres"
   command: [/bin/sh, -c]
   args:
     [
