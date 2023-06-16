@@ -21,21 +21,21 @@ spec:
     POSTGRES_PASSWORD: ${var.postgres-password}
   healthCheck:
     command: [psql, -w, -U, "${var.postgres-username}", -d, "${var.postgres-database}", -c, "SELECT 1"]
-tasks:
-  - name: create-db
-    command: [/bin/sh, -c]
-    args:
-      [
-        "sleep 15 && psql -w -U ${var.postgres-username} --host=postgres --port=5432 -d ${var.postgres-database} -c 'CREATE TABLE IF NOT EXISTS food_suggestions (id serial primary key, food VARCHAR(255) NOT NULL, created_at timestamp default NULL)'",
-      ]
-    dependencies: [postgres]
-    env: &env
-      PGDATABASE: ${var.postgres-database}
-      PGUSER: ${var.postgres-username}
-      PGPASSWORD: ${var.postgres-password}
-  - name: db-clear
-    command: [/bin/sh, -c]
-    args: ["psql -w -U ${var.postgres-username} --host=postgres --port=5432 -d ${var.postgres-database} -c 'TRUNCATE food_suggestions'"]
-    dependencies: [postgres]
-    env:
-      <<: *env
+  tasks:
+    - name: create-db
+      command: [/bin/sh, -c]
+      args:
+        [
+          "sleep 15 && psql -w -U ${var.postgres-username} --host=postgres --port=5432 -d ${var.postgres-database} -c 'CREATE TABLE IF NOT EXISTS food_suggestions (id serial primary key, food VARCHAR(255) NOT NULL, created_at timestamp default NULL)'",
+        ]
+      dependencies: [postgres]
+      env: &env
+        PGDATABASE: ${var.postgres-database}
+        PGUSER: ${var.postgres-username}
+        PGPASSWORD: ${var.postgres-password}
+    - name: db-clear
+      command: [/bin/sh, -c]
+      args: ["psql -w -U ${var.postgres-username} --host=postgres --port=5432 -d ${var.postgres-database} -c 'TRUNCATE food_suggestions'"]
+      dependencies: [postgres]
+      env:
+        <<: *env
