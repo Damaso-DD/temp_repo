@@ -41,6 +41,5 @@ spec:
   command: [/bin/sh, -c]
   args: ["psql -w -U ${var.postgres-username} --host=postgres --port=5432 -d ${var.postgres-database} -c 'TRUNCATE food_suggestions'"]
   dependencies: [postgres]
-  env:
-    <<: *env
+ 
   
