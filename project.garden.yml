@@ -1,0 +1,22 @@
+apiVersion: garden.io/v1
+kind: Project
+name: suggestions
+defaultEnvironment: local
+variables:
+  postgres-username: postgres
+  postgres-database: postgres
+  postgres-password: postgres
+  test-postgres-username: postgres
+  test-postgres-database: testdb
+  test-postgres-password: postgres
+
+environments:
+  - name: local
+    variables:
+      base-hostname: suggestions.app.garden
+  - name: remote
+    variables:
+      base-hostname: "<add you values here>"
+providers:
+  - name: local-kubernetes
+    environments: [local]

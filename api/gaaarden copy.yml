@@ -1,0 +1,25 @@
+kind: Build
+description: The backend for the Restaurant Food Suggestion App
+type: container
+name: api
+services:
+  - name: api
+    args: [python, app.py]
+    ports:
+      - name: http
+        protocol: TCP
+        containerPort: 8080
+        servicePort: 80
+    healthCheck:
+      httpGet:
+        path: /health
+        port: http
+    ingresses:
+      - path: /
+        hostname: "api.${var.base-hostname}"
+        port: http
+    dependencies:
+      - worker
+tests:
+  - name: unit
+    args: ["python", "-m", "unittest", "discover", "-s", "tests/unit_tests/"]

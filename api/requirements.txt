@@ -1,0 +1,6 @@
+Flask
+gunicorn
+Redis
+celery
+flask-cors
+psycopg2-binary

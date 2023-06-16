@@ -1,0 +1,19 @@
+kind: Deploy
+description: The Food Suggestion UI
+name: food
+type: container
+services:
+  - name: food
+    ports:
+      - name: http
+        containerPort: 8080
+        servicePort: 80
+    ingresses:
+      - path: /
+        port: http
+        hostname: food.${variables.base-hostname}
+    dependencies:
+      - api
+# tests:
+#   - name: integ
+#     args: [npm, run, test]

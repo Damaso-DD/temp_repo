@@ -1,0 +1,11 @@
+kind: Build
+description: Redis service for queueing food suggestions before they are stored in the database.
+type: container
+name: redis
+image: redis:alpine
+services:
+  - name: redis
+    ports:
+      - name: redis
+        protocol: TCP
+        containerPort: 6379
