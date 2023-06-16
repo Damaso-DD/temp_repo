@@ -2,13 +2,13 @@ kind: Build
 description: Postgres container 
 type: container
 name: postgres
-image: postgres:11.7-alpine
 ---
 kind: Deploy
 description: Postgres container 
 type: container
 name: postgres
 spec:
+  image: postgres:11.7-alpine
   volumes:
     - name: data
       containerPath: /db-data
