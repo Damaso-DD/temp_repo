@@ -21,7 +21,7 @@ kind: Run
 description: Create db 
 type: container
 name: create-db
-dependencies: [postgres]
+dependencies: [deploy.postgres]
 spec:
   command: [/bin/sh, -c]
   args:
