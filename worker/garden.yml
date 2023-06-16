@@ -10,7 +10,7 @@ name: worker
 build: worker
 dependencies:
   - deploy.redis
-  - deploy.postgres
+  - run.create-db
 spec:
   services:
     - name: worker
