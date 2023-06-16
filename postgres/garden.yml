@@ -31,10 +31,7 @@ spec:
       "-c",
       "sleep 15 && psql -w -U ${var.postgres-username} --host=postgres --port=5432 -d ${var.postgres-database} -c 'CREATE TABLE IF NOT EXISTS food_suggestions (id serial primary key, food VARCHAR(255) NOT NULL, created_at timestamp default NULL)'"
     ]
-  env: &env
-    PGDATABASE: ${var.postgres-database}
-    PGUSER: ${var.postgres-username}
-    PGPASSWORD: ${var.postgres-password}
+
 ---
 kind: Run
 description: Clear db 
