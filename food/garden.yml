@@ -7,6 +7,7 @@ kind: Deploy
 description: The Food Suggestion UI
 name: food
 type: container
+build: food
 services:
   - name: food
     ports:
