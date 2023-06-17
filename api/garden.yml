@@ -27,8 +27,10 @@ spec:
       port: http
 ---
 kind: Test
-name: api
+name: api-unit
 description: Unit Test for the Restaurant Food Suggestion App
+build: api
 type: container
+dependencies: [deploy.api]
 spec:
-  command: ["python", "-m", "unittest", "discover", "-s", "tests/unit_tests/"]
+  args: ["python", "-m", "unittest", "discover", "-s", "tests/unit_tests/"]
