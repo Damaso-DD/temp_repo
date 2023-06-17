@@ -40,10 +40,7 @@ name: api-integ
 description: Ingeg Test for the Restaurant Food Suggestion App
 build: api
 type: container
-dependencies: [deploy.api]
+dependencies: [run.db-clear, run.create-db, deploy.worker]
 spec:
   args: ["python", "-m", "unittest", "discover", "-s", "tests/integration_tests/"]
-  dependencies:
-    - run.db-clear
-    - run.create-db
-    - deploy.worker
+
