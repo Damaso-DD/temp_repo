@@ -24,7 +24,7 @@ name: create-db
 dependencies: [deploy.postgres]
 spec:
   resource:
-    kind: "Pod"
+    kind: "Deployment"
     name: "postgres"
   command: [
       "/bin/sh",
