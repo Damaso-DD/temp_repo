@@ -1,5 +1,5 @@
 kind: Deploy
-description: Postgres container 
+description: Deploys the Postgres container 
 type: container
 name: postgres
 spec:

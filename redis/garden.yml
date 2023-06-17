@@ -1,5 +1,5 @@
 kind: Deploy
-description: Redis service for queueing food suggestions before they are stored in the database.
+description: Deploy the Redis service for queueing food suggestions before they are stored in the database.
 type: container
 name: redis
 spec:

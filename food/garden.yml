@@ -1,15 +1,14 @@
 kind: Build
-description: The Food Suggestion UI
+description: Builds The Food Suggestion UI
 name: food
 type: container
 ---
 kind: Deploy
-description: The Food Suggestion UI
+description: Deploys The Food Suggestion UI
 name: food
 type: container
 build: food
-dependencies:
-  - deploy.api
+dependencies: [deploy.api]
 spec:
   ports:
     - name: http
@@ -20,6 +19,3 @@ spec:
       port: http
       hostname: food.${variables.base-hostname}
 
-# tests:
-#   - name: integ
-#     args: [npm, run, test]

@@ -1,15 +1,14 @@
 kind: Build
 name: api
-description: The backend container for the Restaurant Food Suggestion App
+description: Builds the backend container for the Restaurant Food Suggestion App
 type: container
 ---
 kind: Deploy
 name: api
-description: The backend service for the Restaurant Food Suggestion App
+description: Deploys the backend service for the Restaurant Food Suggestion App
 type: container
 build: api
-dependencies:
-  - deploy.worker
+dependencies: [deploy.worker]
 spec:
   args: [python, app.py]
   ports:
@@ -37,7 +36,7 @@ spec:
 ---
 kind: Test
 name: api-integ
-description: Ingeg Test for the Restaurant Food Suggestion App
+description: Integration Test for the Restaurant Food Suggestion App
 build: api
 type: container
 dependencies: [run.db-clear, run.create-db, deploy.worker]
