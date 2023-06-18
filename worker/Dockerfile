@@ -11,4 +11,4 @@ RUN pip install -r requirements.txt
 # Copy our code from the current folder to /app inside the container
 ADD . /app
 
-CMD ["celery", "-A", "tasks", "worker", "--loglevel=INFO"]
+CMD ["celery", "-A", "tasks", "worker", "--beat", "--loglevel=INFO"]
